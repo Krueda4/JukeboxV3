@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jukeboxv3.login_controller">
+   <children>
+      <ImageView fitHeight="700.0" fitWidth="1200.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../Pictures/Circle_Wallpaper.jpg" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" prefHeight="700.0" prefWidth="500.0" style="-fx-background-color: Black; -fx-opacity: .75;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Pictures/Griffin_Logo.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="1.0" contrast="-1.0" />
+               </effect>
+               <VBox.margin>
+                  <Insets bottom="25.0" />
+               </VBox.margin>
+            </ImageView>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+               <font>
+                  <Font name="Century Gothic Bold" size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="200.0" />
+               </VBox.margin>
+            </Text>
+            <TextField fx:id="username_field" prefHeight="26.0" prefWidth="281.0">
+               <VBox.margin>
+                  <Insets left="150.0" right="150.0" />
+               </VBox.margin>
+            </TextField>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+               <font>
+                  <Font name="Century Gothic Bold" size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="200.0" top="10.0" />
+               </VBox.margin>
+            </Text>
+            <PasswordField fx:id="password_field">
+               <VBox.margin>
+                  <Insets left="150.0" right="150.0" />
+               </VBox.margin>
+            </PasswordField>
+            <Button blendMode="HARD_LIGHT" mnemonicParsing="false" onMousePressed="#login_button_press" style="-fx-background-color: Aqua;" text="Log In">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="8.0" left="35.0" right="35.0" top="8.0" />
+               </padding>
+            </Button>
+            <Button blendMode="HARD_LIGHT" mnemonicParsing="false" onMousePressed="#guest_button_press" style="-fx-background-color: Aqua;" text="Continue As Guest">
+               <padding>
+                  <Insets bottom="8.0" left="35.0" right="35.0" top="8.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button blendMode="HARD_LIGHT" mnemonicParsing="false" onMousePressed="#create_acc_pressed" style="-fx-background-color: Aqua;" text="Create Account">
+               <padding>
+                  <Insets bottom="8.0" left="35.0" right="35.0" top="8.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Button>
+            <Label fx:id="empty_field_label" text="Fields Can't Be Empty" textFill="RED" visible="false">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="username_requirements_label" prefHeight="47.0" prefWidth="486.0" text="Username Requirements: /// 4 Characters Min /// 20 Characters Max /// Dashes &amp; Underscores Allowed" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="password_requirements_label" prefHeight="78.0" prefWidth="474.0" text="Password Requirements : 8-20 Characters///Must contain a number///Must contain an upper and lowercase letter///Must contain a special characters///Can't contain spaces" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="user_added_label" text="User Added Successfully!" textFill="#75afff" visible="false">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="username_exists_label" text="Username already exists" textFill="RED" visible="false">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="-10.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="login_error_label" text="Incorrect Username/Password" textFill="RED" visible="false">
+               <VBox.margin>
+                  <Insets top="-20.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <Label fx:id="now_playling_label" layoutX="643.0" layoutY="200.0" prefHeight="206.0" prefWidth="522.0" text="" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Century Gothic" size="30.0" />
+         </font>
+      </Label>
+      <Button layoutX="1001.0" layoutY="572.0" mnemonicParsing="false" onMouseClicked="#next_song_button" opacity="0.94" prefHeight="77.0" prefWidth="143.0" style="-fx-background-color: #59a0f7; -fx-background-radius: 20;" text="Next Song">
+         <font>
+            <Font name="Century Gothic" size="17.0" />
+         </font>
+      </Button>
+      <Label layoutX="600.0" layoutY="80.0" text="Griff's" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Black" size="60.0" />
+         </font>
+      </Label>
+      <Line endX="221.5999755859375" endY="3.0517578125E-5" layoutX="923.0" layoutY="435.0" startX="-260.5333251953125" startY="3.0517578125E-5" strokeWidth="2.0" />
+      <Label fx:id="no_song_q" layoutX="719.0" layoutY="615.0" prefHeight="26.0" prefWidth="194.0" text="No Song Next in Queue" textFill="RED" visible="false">
+         <font>
+            <Font name="Century Gothic" size="17.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
